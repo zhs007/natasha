@@ -1,2 +1,3 @@
 # natasha
-slots game core
+
+natasa is a slots game core lib like mergin.
