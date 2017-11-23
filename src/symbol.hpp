@@ -10,6 +10,8 @@ BEGIN_NATASHA()
 
 typedef int8_t SymbolCode;
 
+const SymbolCode INVALID_SYMBOL = -1;
+
 struct SymbolInfo{
     SymbolCode                  code;
     std::string                 name;
