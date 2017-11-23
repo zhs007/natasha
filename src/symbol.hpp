@@ -4,6 +4,7 @@
 #include "basedef.hpp"
 #include <string>
 #include <vector>
+#include <map>
 
 BEGIN_NATASHA()
 
@@ -22,6 +23,8 @@ public:
 private:
     SymbolMgr();
     ~SymbolMgr();
+private:
+    std::map<SymbolCode, SymbolInfo>    m_mapSymbol;
 };
 
 END_NATASHA()
