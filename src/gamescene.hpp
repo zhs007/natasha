@@ -8,6 +8,14 @@
 BEGIN_NATASHA()
 
 // -----------------------------------------------------------------------------------
+// GameSceneNode
+
+struct GameSceneNode {
+    int             x, y;
+    SymbolCode      code;
+};
+
+// -----------------------------------------------------------------------------------
 // LineData
 
 class LineData {
@@ -17,10 +25,28 @@ public:
 public:
     // get symbol with (index)
     virtual SymbolCode getSymbol(int index);
+    // get node with (index)
+    virtual GameSceneNode* getNode(int index);
     // reset to empty
     virtual void clear();
 protected:
-    std::vector<SymbolCode>     m_lst;
+    std::vector<GameSceneNode>     m_lst;
+};
+
+// -----------------------------------------------------------------------------------
+// WayData
+
+class WayData {
+public:
+    WayData() { clear(); }
+    virtual ~WayData() {}
+public:
+    // get symbol with (index)
+    virtual SymbolCode getSymbol(int index);
+    // reset to empty
+    virtual void clear();
+protected:
+    std::vector<GameSceneNode>     m_lst;
 };
 
 // -----------------------------------------------------------------------------------

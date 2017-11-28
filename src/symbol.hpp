@@ -5,6 +5,7 @@
 #include <string>
 #include <vector>
 #include <map>
+#include <set>
 
 BEGIN_NATASHA()
 
@@ -16,15 +17,24 @@ struct SymbolInfo{
     SymbolCode                  code;
     std::string                 name;
 
-    std::vector<SymbolCode>     lstWild;
+    bool                        isnotwild;  // wild not substitution
+    std::set<SymbolCode>        sWild;
+
+    SymbolInfo() : isnotwild(false), code(INVALID_SYMBOL) {}
 };
 
-class SymbolMgr{
+class SymbolRules{
 public:
-    static SymbolMgr& getSingleton();
-private:
-    SymbolMgr();
-    ~SymbolMgr();
+    SymbolRules();
+    ~SymbolRules();
+public:
+    void addSymbol(SymbolCode code);
+
+    void addSymbolWild(SymbolCode wild, SymbolCode code);
+
+    void setSymbolNotWild(SymbolCode code, bool isnotwild);
+public:
+    bool isEqu(SymbolCode dest, SymbolCode code);
 private:
     std::map<SymbolCode, SymbolInfo>    m_mapSymbol;
 };
