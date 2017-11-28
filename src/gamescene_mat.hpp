@@ -7,7 +7,7 @@
 BEGIN_NATASHA()
 
 template<int WIDTH, int HEIGHT>
-class GameScene_Mat {
+class GameScene_Mat : public GameScene {
 public:
     GameScene_Mat() {}
     virtual ~GameScene_Mat() {}

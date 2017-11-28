@@ -188,4 +188,16 @@ bool CSVData::onRead() {
     return false;
 }
 
+const char* CSVData::getText(int line, const char* fieldname) {
+    return NULL;
+}
+
+const char* CSVData::getText(int line, int fieldindex) {
+    if (line >= 0 && line < m_height && fieldindex >= 0 && fieldindex < m_width) {
+        return m_lst[line][fieldindex];
+    }
+
+    return NULL;
+}
+
 END_NATASHA()
